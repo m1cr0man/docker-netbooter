@@ -2,8 +2,10 @@
 
 Provides everything you need to PXE boot any machine (BIOS/UEFI).
 
+Non-iPXE booting machines will be "upgraded" to iPXE.
+
 Contains a TFTP, DHCP and HTTP server. The HTTP server runs on port 8069
-by default for safe usage with other running HTTP servers. The DHCP server
+by default for safe usage with other services using port 80. The DHCP server
 can be disabled.
 
 ## Example usage
