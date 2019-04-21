@@ -18,7 +18,7 @@ an [example menu.ipxe](https://github.com/m1cr0man/docker-netbooter/blob/master/
 - Run the container:
 
 ```
-docker run --rm -d --net host --name=${CONTAINER_NAME} -v ${WORKDIR}/httproot:/netboot/httproot \
+docker run --rm -d --net host --name=netbooter -v /path/to/httproot:/netboot/httproot \
 	-e DOMAINNAME=localdomain \
 	-e DNSSERVERS="8.8.8.8 192.168.56.1" \
 	-e NETPREFIX=192.168.56 \
