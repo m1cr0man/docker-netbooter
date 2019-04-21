@@ -1,0 +1,13 @@
+#!ipxe
+
+:mainmenu
+menu Select an option
+item rancheros Rancher OS
+choose os
+
+goto ${os}
+
+:rancheros
+kernel http://${dhcp-server}:8069/rancheros/vmlinuz rancher.autologin=tty1 rancher.autologin=ttyS0 rancher.autologin=ttyS1 console=tty1 console=ttyS0 console=ttyS1
+initrd http://${dhcp-server}:8069/rancheros/initrd
+boot
