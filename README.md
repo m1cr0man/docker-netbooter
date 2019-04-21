@@ -1,5 +1,8 @@
 # Docker Alpine Netboot Server
 
+![Docker Automated build](https://img.shields.io/docker/automated/m1cr0man/netbooter.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/m1cr0man/netbooter.svg)
+
 Provides everything you need to PXE boot any machine (BIOS/UEFI).
 
 Non-iPXE booting machines will be "upgraded" to iPXE.
