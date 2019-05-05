@@ -32,11 +32,12 @@ docker run --rm -d --net host --name=netbooter -v /path/to/httproot:/netboot/htt
 ## Example docker-compose.yml
 
 ```yml
-version: '3'
+version: '3.4'
 services:
   netbooter:
     image: m1cr0man/netbooter:latest
     restart: always
+    network: host
     environment:
       DOMAINNAME: localdomain
       DNSSERVERS: 8.8.8.8 192.168.56.1
