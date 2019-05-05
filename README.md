@@ -29,6 +29,24 @@ docker run --rm -d --net host --name=netbooter -v /path/to/httproot:/netboot/htt
 
 **Note**: If you want to use your own DHCP server just don't specify the environment variables.
 
+## Example docker-compose.yml
+
+```yml
+version: '3'
+services:
+  netbooter:
+    image: m1cr0man/netbooter:latest
+    restart: always
+    environment:
+      DOMAINNAME: localdomain
+      DNSSERVERS: 8.8.8.8 192.168.56.1
+      NETPREFIX: 192.168.56
+      RANGESTART: 50
+      RANGEEND: 100
+    volumes:
+      - ./path/to/httproot:/netboot/httproot:ro
+```
+
 ## Configuration options
 
 Environment variables:
