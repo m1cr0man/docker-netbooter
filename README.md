@@ -20,7 +20,7 @@ an [example menu.ipxe](https://github.com/m1cr0man/docker-netbooter/blob/master/
 ```
 docker run --rm -d --net host --name=netbooter -v /path/to/httproot:/netboot/httproot \
 	-e DOMAINNAME=localdomain \
-	-e DNSSERVERS="8.8.8.8 192.168.56.1" \
+	-e DNSSERVERS="8.8.8.8,192.168.56.1" \
 	-e NETPREFIX=192.168.56 \
 	-e RANGESTART=50 \
 	-e RANGEEND=100 \
@@ -40,7 +40,7 @@ services:
     network: host
     environment:
       DOMAINNAME: localdomain
-      DNSSERVERS: 8.8.8.8 192.168.56.1
+      DNSSERVERS: 8.8.8.8,192.168.56.1
       NETPREFIX: 192.168.56
       RANGESTART: 50
       RANGEEND: 100
@@ -53,7 +53,7 @@ services:
 Environment variables:
 
 - `DOMAINNAME`: Domain to pass to clients via DHCP
-- `DNSSERVERS`: Space separated list of DNS servers
+- `DNSSERVERS`: Comma separated list of DNS servers
 - `NETPREFIX`: The first 3 digits of the IPv4 address range you want to serve. No trailing dot.
 - `RANGESTART`: The first IP address to serve. Prefixed with the `NETPREFIX`
 - `RANGEEND`: The last IP address to serve. Prefixed with the `NETPREFIX`
