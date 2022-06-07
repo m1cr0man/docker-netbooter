@@ -1,11 +1,11 @@
-FROM alpine:3.9
+FROM alpine:3.16
 
 RUN apk add --update --no-cache \
-	dhcp tftp-hpa lighttpd curl && \
+	dnsmasq lighttpd curl && \
 	mkdir -p /netboot/tftproot /netboot/httproot && \
-	touch /netboot/dhcpd.leases && \
-	curl -o /netboot/tftproot/undionly.kpxe http://boot.ipxe.org/undionly.kpxe && \
-	curl -o /netboot/tftproot/ipxe.efi http://boot.ipxe.org/ipxe.efi
+	curl -o /netboot/tftproot/undionly.kpxe https://boot.ipxe.org/undionly.kpxe && \
+	curl -o /netboot/tftproot/ipxe.efi https://boot.ipxe.org/ipxe.efi && \
+	apk del curl
 
 COPY *.conf /etc/
 COPY entrypoint.sh /opt/
